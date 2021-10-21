@@ -2,6 +2,7 @@
 
 # Basic Auth with Express & Mongoose
 
+
 GOAL: allow users to create an account
 
 
@@ -22,4 +23,8 @@ GOAL: allow users to create an account
 - [x] Query DB (`User.create()`)
 - [x] Redirect to `/userProfile` (we created the view `users/user-profile.hbs` and a route GET `/userProfile` )
 
+
+## Step 3: validation
+- [x] Basic Client-side validation (HTML required)
+- [x] Some examples of Server-side validation
 

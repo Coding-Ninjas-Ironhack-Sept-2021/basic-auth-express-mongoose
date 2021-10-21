@@ -13,6 +13,21 @@ router.post("/signup", (req, res, next) => {
 
     const { username, email, password } = req.body;
 
+    // validation: check if user provides all mandatory fields
+    if( !username || !email || !password ) {
+        res.render("auth/signup", { errorMessage: "All fields are mandatory. Please provide your username, email and password."});
+        return;
+    }
+
+
+    // validation: password strength
+    const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
+    if (!regex.test(password)) {
+        res.render('auth/signup', { errorMessage: 'Password needs to have at least 6 chars and must contain at least one number, one lowercase and one uppercase letter.' });
+        return;
+    }
+
+
     bcryptjs
         .genSalt(saltRounds)
         .then( salt => {
@@ -31,9 +46,14 @@ router.post("/signup", (req, res, next) => {
         .then( () => {
             res.redirect('/userProfile');
         })
-        .catch( errorMsg => {
-            console.log("error creating user account", errorMsg);
-            next(errorMsg);
+        .catch( error => {
+            if (error.code === 11000){
+                res.render('auth/signup', { errorMessage: 'Username and email need to be unique. Either username or email is already used.' });
+            } else {
+                console.log("error creating user account", error);
+                next(error);
+            }
+
         });
 });
 
