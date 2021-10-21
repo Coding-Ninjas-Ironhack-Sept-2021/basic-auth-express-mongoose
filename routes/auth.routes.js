@@ -19,7 +19,6 @@ router.post("/signup", (req, res, next) => {
         return;
     }
 
-
     // validation: password strength
     const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
     if (!regex.test(password)) {
@@ -27,16 +26,13 @@ router.post("/signup", (req, res, next) => {
         return;
     }
 
-
     bcryptjs
         .genSalt(saltRounds)
         .then( salt => {
             return bcryptjs.hash(password, salt)
         })
         .then( (digest) => {
-
             console.log(digest, "🦄");
-
             return User.create({
                 username: username,
                 email: email,
@@ -53,8 +49,36 @@ router.post("/signup", (req, res, next) => {
                 console.log("error creating user account", error);
                 next(error);
             }
-
         });
+});
+
+
+router.get('/login', (req, res) => res.render('auth/login'));
+
+
+router.post('/login', (req, res, next) => {
+    const { email, password } = req.body;
+
+    //validation
+    if (email === '' || password === '') {
+        res.render('auth/login', {
+            errorMessage: 'Please enter both, email and password to login.'
+        });
+        return;
+    }
+
+    User.findOne({ email })
+        .then(user => {
+            if (!user) {
+                res.render('auth/login', { errorMessage: 'Email is not registered. Try with other email.' });
+                return;
+            } else if (bcryptjs.compareSync(password, user.passwordHash)) {
+                res.render('users/user-profile', { user });
+            } else {
+                res.render('auth/login', { errorMessage: 'Incorrect password.' });
+            }
+        })
+        .catch(error => next(error));
 });
 
 

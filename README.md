@@ -3,7 +3,9 @@
 # Basic Auth with Express & Mongoose
 
 
-GOAL: allow users to create an account
+GOAL1: allow users to create an account
+GOAL2: validation
+GOAL3: functionality to login / logout
 
 
 ## Step 0: User Model
@@ -28,3 +30,19 @@ GOAL: allow users to create an account
 - [x] Basic Client-side validation (HTML required)
 - [x] Some examples of Server-side validation
 
+
+## Step 4: functionality to login
+
+- [x] Add link to login (`layout.hbs`)
+
+- [x] Route (GET `/login`)
+- [x] View (`views/auth/login.hbs`)
+
+
+- [x] Route (POST `/login`)
+  - [x] Query DB (`User.findOne()`)
+  - [x] Check credentials (`bcryptjs.compareSync`)
+  - [x] If sucessful, redirect to `/userProfile`
+
+- [x] Send information to the view and display it (ex. the username)
+  `res.render('users/user-profile', { user });`
