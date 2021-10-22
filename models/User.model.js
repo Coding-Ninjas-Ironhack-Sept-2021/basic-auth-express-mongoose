@@ -16,6 +16,10 @@ const userSchema = new Schema(
       lowercase: true,
       trim: true
     },
+    role: {
+      type: String,
+      default: "guest"
+    },
     passwordHash: {
       type: String,
       required: [true, 'Password is required.']

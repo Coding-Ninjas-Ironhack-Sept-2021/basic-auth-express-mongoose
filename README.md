@@ -56,3 +56,16 @@ GOAL3: functionality to login
 ## Step 6: logout
 - [x] Route (POST `/logout`)
 - [x] Add button to nav menu
+
+
+## Step 7: authorization
+
+
+- Step 7.a: boilerplate code for authorization
+  - [x] Added mock routes & links to nav
+
+- Step 7.b: custom roles
+  - [x] Add `role` to the User model
+  - [x] Drop `users` collection, create 3 users, change the roles directly in the DB
+  - [x] Display role info in the profile page
+
