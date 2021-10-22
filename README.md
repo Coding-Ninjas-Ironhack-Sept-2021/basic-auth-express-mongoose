@@ -5,7 +5,7 @@
 
 GOAL1: allow users to create an account
 GOAL2: validation
-GOAL3: functionality to login / logout
+GOAL3: functionality to login
 
 
 ## Step 0: User Model
@@ -46,3 +46,9 @@ GOAL3: functionality to login / logout
 
 - [x] Send information to the view and display it (ex. the username)
   `res.render('users/user-profile', { user });`
+
+
+## Step 5: sesion persistance
+
+- [x] Session persistance with `express-session` and `connect-mongo`
+
