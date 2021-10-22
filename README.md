@@ -69,3 +69,8 @@ GOAL3: functionality to login
   - [x] Drop `users` collection, create 3 users, change the roles directly in the DB
   - [x] Display role info in the profile page
 
+
+- Step 7.c: authorization with custom middleware
+  - [x] isAdmin middleware (check if the user is `admin`) + protect the orders route
+  - [ ] isStaff middleware (check if the user is `admin` or `shopManager`) + protect all routes to create a new product (GET & POST routes)
+
