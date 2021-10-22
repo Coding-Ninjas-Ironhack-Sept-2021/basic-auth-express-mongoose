@@ -52,3 +52,7 @@ GOAL3: functionality to login
 
 - [x] Session persistance with `express-session` and `connect-mongo`
 
+
+## Step 6: logout
+- [x] Route (POST `/logout`)
+- [x] Add button to nav menu
