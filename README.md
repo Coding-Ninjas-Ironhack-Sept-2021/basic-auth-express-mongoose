@@ -58,7 +58,7 @@ GOAL3: functionality to login
 - [x] Add button to nav menu
 
 
-## Step 7: authorization
+## Step 7: authorization & custom middleware
 
 
 - Step 7.a: boilerplate code for authorization
