@@ -4,7 +4,8 @@ const router = require("express").Router();
 // editing routes file
 
 router.get("/products", (req, res, next) => {
-    res.send("display list of products")
+    console.log("display list of products")
+    res.send("display list of products...")
 });
 
 router.get("/products/create", (req, res, next) => {
