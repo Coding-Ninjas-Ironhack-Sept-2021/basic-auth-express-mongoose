@@ -13,6 +13,7 @@ router.get("/products/create", (req, res, next) => {
 });
 
 router.post("/products/create", (req, res, next) => {
+    console.log('last scenario testing')
     res.send("create new product")
 });
 
