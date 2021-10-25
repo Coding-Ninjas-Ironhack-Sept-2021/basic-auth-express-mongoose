@@ -13,6 +13,8 @@ router.get("/products/create", (req, res, next) => {
 });
 
 router.post("/products/create", (req, res, next) => {
+    const n = 3;
+    console.log(n);
     res.send("create new product")
 });
 
