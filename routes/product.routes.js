@@ -1,5 +1,7 @@
 const router = require("express").Router();
 
+// Here I'm testing teamwork on github!
+// editing routes file
 
 router.get("/products", (req, res, next) => {
     res.send("display list of products")
